@@ -1,0 +1,21 @@
+*.class
+*.log
+
+/coefficient_ci_csv
+/coefficient_ci_parquet
+/coefficient_co_csv
+/coefficient_co_parquet
+/hotel_parquet
+/hotel_parquet_bucket_by_id
+/hotel_parquet_partition_by_date
+
+train.csv
+test.csv
+
+/res*
+# idea
+/.idea
+/target
+/out
+/data
+*.iml
