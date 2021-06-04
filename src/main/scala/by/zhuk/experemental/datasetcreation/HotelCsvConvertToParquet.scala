@@ -16,14 +16,6 @@ object HotelCsvConvertToParquet {
       .config("spark.history.fs.logDirectory", "file:/D:/tmp/")
       .getOrCreate()
 
-    session
-      .read
-      .format("csv")
-      .option("header", "true")
-      .load("train.csv")
-      .write.mode(SaveMode.Overwrite)
-      .format("parquet")
-      .save("hotel_parquet")
 
     session
       .read
