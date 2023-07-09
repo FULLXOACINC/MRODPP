@@ -4,23 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>sample</groupId>
-    <artifactId>sample</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>io.sparkexperiments</groupId>
+    <artifactId>MRAOADPP</artifactId>
+    <version>1.0.0</version>
 
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spark.version>3.1.1</spark.version>
-        <scala.version.major>2.12</scala.version.major>
+        <spark.version>3.4.1</spark.version>
+        <scala.version.major>2.13</scala.version.major>
         <hadoop.version>3.3.0</hadoop.version>
-        <scala.version.minor>12</scala.version.minor>
-        <jackson.version>2.10.0</jackson.version>
-        <scala.version>2.12.12</scala.version>
+        <scala.version.minor>13</scala.version.minor>
+        <scala.version>2.13.11</scala.version>
         <scala-maven-plugin.version>4.3.1</scala-maven-plugin.version>
-        <maven-assembly-plugin.versoin>2.3</maven-assembly-plugin.versoin>
     </properties>
 
     <!-- spark -->
@@ -42,25 +40,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jmockit</groupId>
-            <artifactId>jmockit</artifactId>
-            <version>1.34</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- hadoop-->
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-azure</artifactId>
-            <version>${hadoop.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-azure-datalake</artifactId>
-            <version>${hadoop.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
@@ -75,73 +54,6 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-core</artifactId>
             <version>${hadoop.version}</version>
-        </dependency>
-
-        <!--azure-->
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.3.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-keyvault-core</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-storage</artifactId>
-            <version>7.0.0</version>
-        </dependency>
-
-        <!--jackson-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <!--geo API-->
-
-        <dependency>
-            <groupId>com.byteowls</groupId>
-            <artifactId>jopencage</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-
-        <!-- Java libs -->
-
-        <dependency>
-            <groupId>ch.hsr</groupId>
-            <artifactId>geohash</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-
-        <!-- Scala libs -->
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.version.major}</artifactId>
-            <version>3.2.8</version>
         </dependency>
 
 
@@ -180,29 +92,6 @@
                         </launcher>
                     </launchers>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.versoin}</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>by.zhuk.streaminghw.spark.KafkaTrainReader</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
